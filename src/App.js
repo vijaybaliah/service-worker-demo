@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Layout, Header, Content, Navigation, Drawer} from 'react-mdl';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout fixedHeader>
+        <Header title="product pwa">
+          <Navigation className="hide-on-sm">
+          </Navigation>
+        </Header>
+        <Drawer title="product pwa">
+          <Navigation>
+          </Navigation>
+        </Drawer>
+        <Content>
+          Dynamic content here...
+        </Content>
+      </Layout>
     </div>
   );
 }
