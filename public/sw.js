@@ -1,4 +1,4 @@
-const cacheName = 'product-hunt-2'
+const cacheName = 'product-hunt'
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -18,12 +18,14 @@ self.addEventListener('install', event => {
   )
 })
 
-self.addEventListener('fetch', function (event) {
+self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(function (response) {
+    caches.match(event.request).then(response => {
       if (response) {
         return response
       }
+      const fetchRequest = event.request.clone()
+      return fetch(fetchRequest)
     })
   )
 })
